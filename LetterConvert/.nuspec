@@ -1,0 +1,17 @@
+﻿<package>
+	<metadata>
+		<id>TextConverter</id>
+		<version>1.0.0</version>
+		<title>Text Converter</title>
+		<authors>Bojan</authors>
+		<owners>Bojan Pavlovic</owners>
+		<licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+		<projectUrl>https://github.com/bojanrmv/TextConvertor</projectUrl>
+		<iconUrl>https://raw.githubusercontent.com/johndoe/MyPackage/master/icon.png</iconUrl>
+		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<description>A text converter that can be used to convert Latin to Cyrilic letters, as well as any other letters. The converter is easy to use and can be incorporated into a variety of projects and applications. Whether you need to convert text for display or for processing, this converter can help you get the job done quickly and easily.</description>
+		<releaseNotes>Initial release</releaseNotes>
+		<copyright>Copyright 2022</copyright>
+		<tags>letters text converter</tags>
+	</metadata>
+</package>
