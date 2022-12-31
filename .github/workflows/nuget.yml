@@ -6,7 +6,7 @@ env:
   NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
   NUGET_URL: 'https://api.nuget.org/v3/index.json'
   OUTPUT_DIRECTORY: ${{ github.workspace }}\output
-  PROJECT_PATH: 'LetterConvert/TextConvert.csproj'
+  PROJECT_PATH: 'TextConvertor/LetterConvert/TextConvert.csproj'
 jobs:
   deploy:
     name: 'Deploy'
