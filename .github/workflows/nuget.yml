@@ -1,0 +1,30 @@
+name: "Deploy to NuGet"
+
+on: ["push"]
+
+env:
+  NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+  NUGET_URL: 'https://api.nuget.org/v3/index.json'
+  OUTPUT_DIRECTORY: ${{ github.workspace }}\output
+  PROJECT_PATH: 'LetterConvert/TextConvert.csproj'
+jobs:
+  deploy:
+    name: 'Deploy'
+    runs-on: 'windows-latest'
+    steps:
+    - name: 'Checkout'
+      uses: action/setup-dotnet@v1
+      with:
+        dotnet-version: '6.x'
+
+    - name: 'Restore package'
+      run: dotnet restore ${{ env.PROJECT_PATH }}
+
+    - name: 'Build project'
+      run: dotnet build ${{ env.PROJECT_PATH }} --no-restore --configuration Release
+    
+    - name: 'Pack project'
+      run: dotnet pack ${{ env.PROJECT_PATH }} --no-restore --no-build --configuration Release --include-symbols --output ${{ env.OUTPUT_DIRECTORY }}
+
+    - name: 'Push package'
+      run: dotnet nuget push ${{ env.OUTPUT_DIRECTIRY }}\*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s ${{ env.NUGET_URL }} 

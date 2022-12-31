@@ -97,9 +97,21 @@ namespace UnitTest.API.LIB.Letters
             Assert.Equal(expected, actual);
         }
 
+        [Fact]
+        public void Convert_empty_string_returns_empty_string()
+        {
+            // Arrange
+            var sut = new TextConvertor();
+            var input = "";
+            var expectedOutput = "";
 
+            // Act
+            var actualOutput = sut.Convert(input);
 
-
+            // Assert
+            Assert.Equal(expectedOutput, actualOutput);
+        }
+        
         private static string TestLongStringLatin()
         {
             return @"U računarstvu , običan tekst je labav termin za podatke (npr. sadržaj datoteke) koji predstavljaju samo znakove čitljivog materijala, ali ne i njegov grafički prikaz niti druge objekte ( brojevi s pomičnim zarezom , slike, itd.). Takođe može uključivati ​​ograničen broj.";
